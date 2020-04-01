@@ -1,0 +1,14 @@
+<div class="outer">
+    <div class="stats">
+        <h4>Permissions Required: {{ totalPermissionsRequired }}</h4>
+        <h4>Permissions Given: {{ permissionsReceived }}</h4>
+    </div>
+    <div class="inner" *ngFor="let permission of permissionList; let i = index;">
+        <p> {{ permission.name }} </p>
+        <p *ngIf="!permission.isAccessible" class="get-access">
+            <button class="btn" (click)="getAccess(i)">Give Access</button>
+        </p>
+        <p class="hidden not-allowed"> No Access</p>
+        <p class="hidden allowed">Access Allowed</p>
+    </div>
+</div>
